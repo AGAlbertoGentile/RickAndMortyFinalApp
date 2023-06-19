@@ -1,0 +1,163 @@
+/* .CardContainer{
+    height:320px;
+    max-width: 200px;
+    box-shadow: 3px 3px 8px rgba(28, 25, 25, 0.818);
+    background-color: royalblue;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.246);
+    background-image: url('../../assets/Panel-prueba-1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+
+/* .CardContainer{ */
+  /* height:320px;
+  max-width: 200px;
+  box-shadow: 3px 3px 8px rgba(28, 25, 25, 0.818);
+  background-color: royalblue;
+  border-radius: 10px;
+  margin-bottom: 30px; */
+  /* border-bottom: 4px solid rgba(0, 0, 0, 0.246); */
+  /* display: flex;
+  justify-content: center;
+
+  background-image: url('../../assets/Panel-prueba-5.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 5%;
+  /* background-color: aqua; */
+  /* height: 350px;
+  width: 300px;
+  overflow: hidden;
+  z-index: 999;
+  
+} */ 
+.imageContainer{
+  display:flex ;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.imgFrameTop{
+  position: absolute;
+  width: 260px;
+  z-index: 2;
+  -webkit-mask: url('../../assets/Panel-prueba-9.png') no-repeat center / contain;
+  mask: url('../../assets/Panel-prueba-9.png') no-repeat center / contain;
+  
+}
+  
+
+.img{
+  max-width: 300px;
+  top: 0;
+  left: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.panel-animado:hover {
+  box-shadow: 0 0 10px royalblue;
+}
+
+/* .container:hover {
+    transform: scale(0.8);
+} */
+
+
+/* .img:hover {
+    border: royalblue;
+    color: beige;
+} */
+
+/* .titleContainer{
+  display: flex;
+  background-color: antiquewhite;
+  max-height: 200px;
+  max-width: 200px;
+  overflow-wrap: break-word;
+  justify-content: center;
+  align-items: center;
+
+} */
+
+.CardTitle {
+  position: relative;
+  border-color: black;
+  color:rgb(143, 145, 144);
+  padding: 5px;
+  height: 40px; 
+  z-index: 3; 
+}
+.CardTitle-animado {
+  transition: box-shadow 0.1s ease-in-out;
+  /* box-shadow: none; */
+}
+a{
+  text-decoration: none;
+}
+
+h3.CardTitle{
+  text-align:center;
+  font-size:14px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+
+}
+/* .topCardContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  /* background-color: rgb(74, 194, 170); */
+  /* box-shadow: 0px 2px 8px rgba(19, 14, 14, 0.876);
+  text-align: center;
+  padding: 0 10px;
+  margin-bottom: 3px;
+} */ 
+
+.topCardContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  /* background-color: rgb(74, 194, 170); */
+  box-shadow: 0px 2px 8px rgba(19, 14, 14, 0.876);
+  text-align: center;
+  padding: 0 10px;
+  margin-bottom: 3px;
+
+}
+
+.information {
+    color:white;
+}
+.color1 {
+    color:royalblue;
+  }
+.buttonDelete{
+  position: relative;
+  background-color:rgba(65, 105, 225, 0.37);
+  box-shadow: 0px 3px 2px rgba(19, 14, 14, 0.876);
+  border-radius: 10px;
+  color:rgb(184, 184, 184);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+.buttonDelete:hover{
+  background-color:rgb(233, 49, 45);
+  color:white;
+}
+
+.buttonFav{
+  position: relative;
+  max-height: 30px;
+  max-width: 30;
+  background-color: transparent;
+  color:gainsboro;
+  border: none;
+}

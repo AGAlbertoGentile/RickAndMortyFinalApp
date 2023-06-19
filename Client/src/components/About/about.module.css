@@ -1,0 +1,29 @@
+
+.AboutContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 8%;
+    height: 780px;
+    background-image: url('../../assets/Panel-prueba-3.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.AboutApp{
+    margin-top: 140px;
+    width: 42%;
+    font-size: 13px;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(89, 85, 85, 0.5);
+    color: rgb(187, 188, 190);
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    
+}
+
+.h2.AboutApp{
+    padding-bottom: 40px;;
+}
+

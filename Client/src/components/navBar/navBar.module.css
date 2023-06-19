@@ -1,0 +1,51 @@
+.Navcontainer{
+    display: flex;
+    background-image: url('../../assets/rickAndMorty1.jpg');
+    background-attachment: fixed;
+    justify-content: center;
+    /* box-shadow: 2px 2px 8px royalblue; */
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    padding: 10px;
+    height: 15%;
+}
+
+.img{
+    height: 70px;
+    margin-bottom: 20px;
+    padding-right: 150px;
+}
+
+.LogOutButton{
+    position: absolute;
+    margin-left: 80%;
+    height: 27px;
+    margin-top: 30px;
+    font-weight: bold;
+    background-color: #3dd682;
+    border:none;
+    border-radius: 30px;
+    padding: 5px;
+    cursor: pointer;
+}
+.NavButton{
+    padding: 5px;
+    font-weight: bold;
+    background-color:rgba(82, 82, 82, 0.082);
+    border-radius: 30px;
+    color:rgba(255, 255, 255, 0.714);
+    margin-right: 20px;
+    margin-top: 30px;
+    width: 100px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+.NavButton:hover{
+    background-color:#4169e1;
+    color:white;
+    cursor: pointer;
+
+}

@@ -1,0 +1,10 @@
+.CardsContainer {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 50px;
+    margin-top: 181px;
+    box-sizing: border-box;
+}

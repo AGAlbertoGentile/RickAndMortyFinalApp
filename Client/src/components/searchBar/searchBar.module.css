@@ -1,0 +1,61 @@
+.SearchContainer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.SearchButton{
+    padding: 5px;
+    font-weight: bold;
+    margin-left: 10px;
+    max-height: 30px;
+    background-color:rgba(82, 82, 82, 0.082);
+    border-radius: 30px;
+    color:rgba(255, 255, 255, 0.714);
+    margin-top: 30px;
+    width: 100px;
+    max-width: 150px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.SearchButton:hover{
+    background-color:royalblue;
+    color:white;
+}
+
+.inputContainer{
+    text-align: center;
+    margin-left: 150px;
+    width: 100px;
+    background-color:gainsboro;
+    box-shadow: 2px 2px 8px rgba(19, 14, 14, 0.876);
+    border: none;
+    border-radius: 20px;
+    height: 30px;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.addRandomButton{
+    padding: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+    max-height: 30px;
+    background-color:rgba(82, 82, 82, 0.082);
+    border-radius: 30px;
+    color:rgba(255, 255, 255, 0.714);
+    margin-right: 20px;
+    margin-top: 30px;
+    width: 110px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+
+}
+.addRandomButton:hover{
+    background-color:royalblue;
+    color:white;
+}
