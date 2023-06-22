@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import frame from '../../assets/Panel-prueba-9.png';
 
 
-export function Card({id, character, onClose, addFav, removeFav, myFavorites}) {
+export function Card({character, onClose, addFav, removeFav, allCharacters}) {
    
    const [closeBtn, setCloseBtn] = useState(true);
 
@@ -16,12 +16,13 @@ export function Card({id, character, onClose, addFav, removeFav, myFavorites}) {
 
    const [isFav,setIsFav] = useState(false);
 
-   const handleFavorite = (data) => {
+   const handleFavorite = () => {
       if (isFav) {
-        removeFav(data);
+         console.log(character.id)
+        removeFav(character.id);
         setIsFav(false);
       } else {
-        addFav(data);
+        addFav(character);
         setIsFav(true);
       }
    };
@@ -32,13 +33,13 @@ export function Card({id, character, onClose, addFav, removeFav, myFavorites}) {
       }
    },[]);
 
-   useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if (fav.id === character.id) {
+   useEffect(() => { //[...orderArray]
+      allCharacters.forEach((fav) => {
+         if (fav.id === character.id){
             setIsFav(true);
          }
       });
-   }, [myFavorites]);
+   }, [allCharacters, character.id]);
 
    return (
 
@@ -50,9 +51,9 @@ export function Card({id, character, onClose, addFav, removeFav, myFavorites}) {
          <div className={style.topCardContainer}>
          {
             isFav ? (
-               <button className={style.buttonFav} onClick={() => handleFavorite(id)}>❤️</button>
+               <button className={style.buttonFav} onClick={handleFavorite}>❤️</button>
             ) : (
-               <button className={style.buttonFav} onClick={() => handleFavorite(character)}>♥</button>
+               <button className={style.buttonFav} onClick={handleFavorite}>🤍</button>
             )
          }
          {closeBtn && (
@@ -62,7 +63,7 @@ export function Card({id, character, onClose, addFav, removeFav, myFavorites}) {
          <div>
          <Link to={`/detail/${character.id}`}>
             <div className={style.imageContainer}>
-               <img className={style.imgFrameTop} src={frame} alt='character  frame'/>
+               {/* <img className={style.imgFrameTop} src={frame} alt='character  frame'/> */}
                <img className={style.img}src={character.image} alt=  {character.name} />
                <h3 className={style.CardTitle}>{character.name}</h3>
             </div>
@@ -71,7 +72,7 @@ export function Card({id, character, onClose, addFav, removeFav, myFavorites}) {
          
      </div>
    );
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
    return {
@@ -82,7 +83,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
    return{
-      myFavorites: state.myFavorites, // aca estoy sacando solo el atributo que me interesa de mi 'inicialState'
+      allCharacters: state.allCharacters, // aca estoy sacando solo el atributo que me interesa de mi 'inicialState'
    }
 };
 

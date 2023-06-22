@@ -3,7 +3,6 @@
     overflow-x: auto;
     flex-wrap: wrap;
     justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 50px;
     margin-top: 154px;
     box-sizing: border-box;
@@ -28,3 +27,4 @@
     padding: 4px 10px;
     z-index: 100;
 }
+

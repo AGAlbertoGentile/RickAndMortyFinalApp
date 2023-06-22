@@ -25,7 +25,7 @@ export default function Favorites(){
     <div>
       <div className={style.FavoritesFiltersContainer}>
         <select placeholder='Gender' onChange={handleFilter} className={style.FavoritesFiltersButtons}>
-          {['Male','Female', 'Unknown', 'Genderless'].map((gender) => 
+          {['All','Male','Female', 'Unknown', 'Genderless'].map((gender) => 
           (<option value={gender}>{gender}</option>))};
         </select>
         <select placeholder='Order' onChange={handleSort} className={style.FavoritesFiltersButtons}>
