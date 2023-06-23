@@ -1,0 +1,44 @@
+.detailContainer{
+    position: relative;
+    width: 70%;
+    margin: auto;
+    margin-top: 8%;
+    height: 780px;
+    background-image: url('../../assets/Panel-prueba-3.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-size: cover;
+}
+
+.imgCharacter{
+    position: absolute;
+    top: 40%;
+    margin-left: 18%;
+    border-radius: 250px;
+    box-shadow: 2px 2px 10px rgba(19, 14, 14, 0.876);
+    height: 450px;
+    border: 10px;
+    padding: 10px;
+    transform: translate(0,-40%);
+    
+
+
+}
+
+.descriptionText{
+    
+    position: absolute;
+    top:40%;
+    transform: translate(0,-40%);
+    font-size: 30px;
+    margin-left: 58%;
+    flex-direction: column;
+    justify-content: center;
+    & h2{
+        color:gainsboro;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+    }
+}
+
