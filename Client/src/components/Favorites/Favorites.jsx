@@ -24,13 +24,13 @@ export default function Favorites(){
   return (
     <div>
       <div className={style.FavoritesFiltersContainer}>
-        <select placeholder='Gender' onChange={handleFilter} className={style.FavoritesFiltersButtons}>
+        <select onChange={handleFilter} className={style.FavoritesFiltersButtons}>
           {['All','Male','Female', 'Unknown', 'Genderless'].map((gender) => 
           (<option value={gender}>{gender}</option>))};
         </select>
-        <select placeholder='Order' onChange={handleSort} className={style.FavoritesFiltersButtons}>
-          {['Ascendente', 'Descendiente'].map((gender) => 
-          (<option value={gender}>{gender}</option>))};
+        <select onChange={handleSort} className={style.FavoritesFiltersButtons}>
+          {['Default', 'Ascendente', 'Descendente'].map((order) => 
+          (<option value={order}>{order}</option>))};
         </select>
         <button onClick={handleReset} className={style.FavoritesFiltersButtons}>Reset</button>
       </div>

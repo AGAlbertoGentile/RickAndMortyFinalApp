@@ -1,20 +1,36 @@
-import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, RESET } from "./typeActions";
+import { ADD_FAV, REMOVE_FAV, ORDER, FILTER, RESET, CACHE_FAV, ADD_CHAR, DEL_CHAR } from "./typeActions";
 
 
 const initialState = {
     myFavorites: [],
-    allCharacters: []
+    allCharacters: [],
+    fullCharacters: [],
 };
  
 const rootReducer = (state= initialState, action) => {
-    const { payload } = action;
+    const { payload, type } = action;
  
-    switch(action.type){
-     
+    switch(type){
+        case ADD_CHAR:
+            return{
+                ...state,
+                fullCharacters: [payload, ...state.fullCharacters],
+            }
+
+        case DEL_CHAR:
+            let filterChar = state.fullCharacters.filter(character => {
+                return Number(character.id) !== Number(payload)});
+            return{
+                ...state,
+                fullCharacters: filterChar,
+            }
+
         case ADD_FAV:
-            return { ...state, 
+            return { 
+                ...state, 
                 myFavorites: payload, 
-                allCharacters: payload };
+                allCharacters: payload
+            }
            
         case REMOVE_FAV:
             // let removeItem = Number(payload);
@@ -22,15 +38,14 @@ const rootReducer = (state= initialState, action) => {
                 ...state,
                 myFavorites: payload,
                 allCharacters: payload,
-
             }
+            
         case ORDER:
-            let orderArray;
+            let orderArray = [...state.allCharacters];
             if(action.payload === "Ascendente"){
-                orderArray = state.myFavorites.sort((a,b)=> (a.id > b.id ? 1 : -1)) // se podria cambiar y hacer por nombre, el 1 y -1 indican si es verdadero lo deja primero sino lo pone delante con el -1.
-
-            }else{
-                orderArray = state.myFavorites.sort((a,b)=> (b.id > a.id ? 1 : -1))
+                orderArray.sort((a,b)=> (a.id > b.id ? 1 : -1)) // se podria cambiar y hacer por nombre, el 1 y -1 indican si es verdadero lo deja primero sino lo pone delante con el -1.
+            }else if(action.payload === "Descendente"){
+                orderArray.sort((a,b)=> (b.id > a.id ? 1 : -1))
             }
             return {
                 ...state,
@@ -41,7 +56,7 @@ const rootReducer = (state= initialState, action) => {
             if(action.payload === 'All'){
                 characters =  state.allCharacters
             }else{
-                characters = state.allCharacters.filter(character => character.gender === action.payload)
+                characters = state.allCharacters.filter(character => character.gender === payload)
             }
             return{
                 ...state,
@@ -51,6 +66,13 @@ const rootReducer = (state= initialState, action) => {
             return{
                 ...state,
                 myFavorites: state.allCharacters
+            }
+        case CACHE_FAV:
+            return{
+                ...state,
+                fullCharacters: payload,
+                myFavorites: payload,
+                allCharacters: payload,
             }
     default:
         return state;

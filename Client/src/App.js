@@ -11,21 +11,26 @@ import About from './components/About/About.jsx';
 import { useNavigate } from 'react-router-dom';
 import Form from './components/Form/Form.jsx';
 import Error from './components/Error/Error';
-import { useDispatch } from 'react-redux';
-import { removeFav } from './redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { cacheFav, removeFav } from './redux/actions';
 import Favorites from './components/Favorites/Favorites';
+import { addCharacter, deleteCharacter } from './redux/actions';
 
 
 
 function App() {
 
-   const [characters, setCharacters] = useState([])
+
+   const dispatch = useDispatch();
+
+   const characters = useSelector((state) => state.fullCharacters)
 
    async function searchHandler(id) {
+
       try {
          if (!characters.find((character) => character.id === Number(id))) {
-            const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
-            setCharacters((oldChars) => [...oldChars, data]); //Crea un array nuevo n el cual agrega "data" el nuevo elemento.
+            dispatch(addCharacter(id));
+            console.log('add')
          } else {
             alert('El personaje ya ha sido agregado')
          }// Pregunta si el objeto 'character' no se encuentra en el array de objetos 'characters'
@@ -34,11 +39,12 @@ function App() {
       };
    };
 
-   const [access, setAccess] = useState(true);
+   const [access, setAccess] = useState(false);
    // const email = "alberto.gentile1@gmail.com";
    // const password = "123456";
 
-   const dispatch = useDispatch();
+
+   const location = useLocation();
    
    let navigate = useNavigate();
 
@@ -49,27 +55,35 @@ function App() {
          const {data} = await axios(URL + `?email=${email}&password=${password}`)
          const { access } = data;
          setAccess(data);
-         access && navigate('/home');
+         if(access){
+            axios.delete(URL);
+            localStorage.setItem('myToken', email); // primer parametro es el nombre de la variable que va a contener al token, y el segundo el valor.
+            navigate('/home');
+         }
       } catch (error) {
          alert('Email o password incorrecto');
       };
    };
 
    useEffect(() => {
-      !access && navigate('/');
-   }, [access, navigate]);
+      const token = localStorage.getItem('myToken');
+      if(token && !access){ // aca preguntamos si fue F5
+         setAccess(true);
+         dispatch(cacheFav()).then(location.pathname ==='/' && navigate('/home'));
+      };
+      if(!token && !access){
+         !access && navigate('/');
+      };
+   }, [access, navigate, location.pathname]);
 
    function closeHandler(id) {
-      let deleted = characters.filter((character) => character.id !== Number(id));
-      dispatch(removeFav(id));
-      setCharacters(deleted);
+      dispatch(deleteCharacter(id))
    };
 
    function logout() {
+      localStorage.removeItem('myToken');
       setAccess(false);
    };
-
-   const location = useLocation();
 
    return (
       <div className='App'>

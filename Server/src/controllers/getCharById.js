@@ -4,6 +4,7 @@ const axios = require('axios');
 // .then((response) => response.json) /// los objetos en axios no hay q parciarlos a JSON
 const URL = ("https://rickandmortyapi.com/api/character/");
 
+
 async function getCharById (req, res) {
     try{
         const {id} = req.params;
