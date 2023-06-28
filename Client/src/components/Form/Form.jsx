@@ -69,7 +69,7 @@ export function Form(props) {
   return (
     <div>
       <div className={style.globalContainer}>
-        <video autoPlay loop muted playbackRate={0.5} id="videoFondo">
+        <video autoPlay loop muted playbackRate={0.1} id="videoFondo">
           <source src={backgroundLog} type="video/mp4"/>
         </video>
       </div>

@@ -3,6 +3,7 @@ const server = express();
 const PORT = 3001;
 const {router} = require('./routes/index');
 const morgan = require('morgan');
+const { conn } = require('./DB_connection');
 
 server.listen(PORT, () => {
     console.log('Server raised in port: ' + PORT);

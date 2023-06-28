@@ -1,6 +1,5 @@
 .FavoritesContainer{
     display: flex;
-    overflow-x: auto;
     flex-wrap: wrap;
     justify-content: center;
     grid-gap: 50px;
